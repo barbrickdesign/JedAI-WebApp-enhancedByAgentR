@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import {Jumbotron, Modal} from 'react-bootstrap';
+import {Jumbotron, Modal, Row, Col, Card} from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import {Link, withRouter } from 'react-router-dom';
 import Workbench from './Workbench';
 import axios from 'axios';
-import ExecutionView from'./ExecutionView';
 
 class Modes extends Component {
 
@@ -53,22 +52,52 @@ class Modes extends Component {
                         </Link>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="primary" onClick={this.close_exec_window}>
+                        <Button variant="secondary" onClick={this.close_exec_window}>
                             Close
                         </Button>
                     </Modal.Footer>
                 </Modal>
 
 
-               <Jumbotron className="jumbotron" style={{width:'90%'}}>
-                    <header><h2></h2></header>
-                    <br/>
+               <Jumbotron className="jumbotron" style={{width:'90%', marginTop: '20px'}}>
                     <div style={{marginBottom:"5px"}}> 
-                        <h1 style={{fontSize: "400%", display:'inline', marginRight:"20px"}}>JedAI</h1> 
-                        <span className="workflow-desc" >The Java gEneric DAta Integration ToolKit is an open source, high scalability toolkit that offers out-of-the-box solutions for any data integration task.</span>
+                        <h1 style={{fontSize: "3rem", display:'inline', marginRight:"20px"}}>JedAI</h1> 
+                        <span className="workflow-desc">The Java gEneric DAta Integration ToolKit is an open source, high scalability toolkit that offers out-of-the-box solutions for any data integration task.</span>
                     </div>
-                    <br/>
-                    <br/>
+                    <Row className="mt-3 mb-3" style={{textAlign:'center'}}>
+                        <Col md={3}>
+                            <Card style={{border:'none', background:'transparent'}}>
+                                <Card.Body>
+                                    <span className="fa fa-database fa-2x" style={{color:'#007bff'}}/>
+                                    <p className="mt-2" style={{fontSize:'0.9rem'}}>Multiple data source formats: CSV, XML, RDF, serialized, database</p>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col md={3}>
+                            <Card style={{border:'none', background:'transparent'}}>
+                                <Card.Body>
+                                    <span className="fa fa-cogs fa-2x" style={{color:'#28a745'}}/>
+                                    <p className="mt-2" style={{fontSize:'0.9rem'}}>Auto-configuration via Grid Search or Random Search</p>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col md={3}>
+                            <Card style={{border:'none', background:'transparent'}}>
+                                <Card.Body>
+                                    <span className="fa fa-bar-chart fa-2x" style={{color:'#fd7e14'}}/>
+                                    <p className="mt-2" style={{fontSize:'0.9rem'}}>Detailed results, logs, and performance visualizations</p>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                        <Col md={3}>
+                            <Card style={{border:'none', background:'transparent'}}>
+                                <Card.Body>
+                                    <span className="fa fa-flask fa-2x" style={{color:'#6f42c1'}}/>
+                                    <p className="mt-2" style={{fontSize:'0.9rem'}}>Workbench for benchmarking multiple workflow configurations</p>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    </Row>
                     <div style={{margin: "20px"}}>
                         <h3 style={{display:"inline", marginRight:"20px"}}>Workbench</h3> 
                         <Button variant="primary" onClick={this.open_exec_window}>
@@ -94,4 +123,3 @@ const btnStyle = {
 }
 
 export default withRouter(Modes)
-
